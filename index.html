@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>HTML-CDATA-Transformer</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 2rem;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 1rem;
+        }
+
+        pre {
+            background: #f5f5f5;
+            padding: 1rem;
+            overflow: auto;
+            white-space: pre-wrap;
+        }
+
+        button {
+            margin-right: 0.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>HTML-CDATA-Transformer</h1>
+    <h2>zum Verarbeiten von 'Sendinblu'-Widgets</h2>
+    <p>Füge hier deinen kompletten HTML-Code ein:</p>
+    <textarea id="inputHtml" placeholder="Hier HTML einfügen…"></textarea>
+
+    <label>
+        <input type="checkbox" id="chkDismissClosing" checked />
+        Erstes CDATA-Closing-Tag verwerfen (ersetze mit <code>&lt;![CDATA[]]&gt;</code>)
+    </label>
+
+    <label>
+        <input type="checkbox" id="chkInsertDiv" checked />
+        Leeres <code>&lt;div&gt;</code> einfügen nach erstem CDATA-Opening: <code>&lt;![CDATA[&lt;div&gt;</code>
+    </label>
+
+    <button id="btnProcess">Verarbeiten</button>
+
+    <h2>Head-Code</h2>
+    <h3>Einfügen in Jimdo:</h3>
+    <ul>
+        <li>Bearbeitungmodus > Menü > Einstellungen > <strong>Head bearbeiten</strong></li>
+        <li>Tab <i>Gesamte Webseite</i>: Kopierten Code einfügen & speichern
+    </ul>
+    <button data-target="headResult" class="btnCopy">Kopieren</button>
+    <pre id="headResult"></pre>
+
+    <h2>Body als CDATA</h2>
+    <h3>Einfügen in Jimdo:</h3>
+    <ul>
+        <li>Bearbeitungmodus > Bereich für Widget auswählen > <strong>+ Inhalt hinzufügen</strong> > Weitere Inhalte und
+            Add-ons > <strong>Widget / HTML</strong> wählen</li>
+        <li>Kopierten Code einfügen & speichern
+    </ul>
+    <button data-target="bodyResult" class="btnCopy">Kopieren</button>
+    <pre id="bodyResult"></pre>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
